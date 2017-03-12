@@ -11,6 +11,10 @@ html can be accessed on: http://host:8080/search
 3. Search results will be ordered lexicographically.
 4. It will only displayed at max 15 items.
 
+## Data Population
+
+Please run `SearchTermPopulator.scala` first to populate the dummy data into mongodb, it is located on 'test' folder.
+
 #### NB
 
 If somehow there is some problem with SBT resolver when resolving jboss package expecially in IntelliJ IDEA.
