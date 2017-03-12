@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Autocomplete Demo</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+  $( function() {
+    function log( message ) {
+      $( "<div>" ).text( message ).prependTo( "#log" );
+      $( "#log" ).scrollTop( 0 );
+    }
+
+    $( "#company" ).autocomplete({
+      source: "/v1/company/search",
+      minLength: 2,
+      focus: function( event, ui ) {
+        $( "#company" ).val( ui.item.label );
+        return false;
+      },
+      select: function( event, ui ) {
+        document.location.href = "company/" + ui.item.value;
+      }
+    });
+  } );
+  </script>
+</head>
+<body>
+
+<div class="ui-widget">
+    <label for="company">Company: </label>
+    <input id="company">
+</div>
+
+</body>
+</html>
